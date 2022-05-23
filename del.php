@@ -7,25 +7,17 @@ $username = env('dbUser');
 $password = env('dbPassword');
 
 try {
-    if (empty($_GET['key']) || empty($_GET['d'])){ http_response_code(412);echo null; return;}
+    if (empty($_GET['key']) ){ http_response_code(412);echo null; return;}
     $key = $_GET['key'];
-    $content = $_GET['d'];
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql = "INSERT INTO fidodata (datakey, content)
-            VALUES ('$key', '$content')";
     // use exec() because no results are returned
     // $conn->exec($sql);
     
-    $stmt = $conn->prepare("INSERT INTO fidodata (datakey, content)
-        VALUES (:key, :content)
-        ON DUPLICATE KEY UPDATE
-        datakey = values(datakey),
-        content = values(content)");
+    $stmt = $conn->prepare("DELETE FROM fidodata  WHERE datakey = :key");
     $stmt->bindParam(':key', $key);
-    $stmt->bindParam(':content', $content);
-
+    
     $stmt->execute();
 
     http_response_code(200);
