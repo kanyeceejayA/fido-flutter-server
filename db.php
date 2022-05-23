@@ -1,10 +1,11 @@
+<head></head>
 <?php
 include('env.php');
 echo 'Wroking <br>';
 ini_set('display_errors', 1); ini_set('display_startup_errors', 1); error_reporting('E_ALL');
 
-$dns = 'mysql:host=localhost;dbname=silbaka_fido';
-$user = 'silbaka_fidoUser';
+$dns = 'mysql:host=localhost;dbname='.env('dbName');
+$user = env('dbUser');
 $password = env('dbPassword');
 try{
  $db = new PDO ($dns, $user, $password);
