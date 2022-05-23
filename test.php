@@ -10,7 +10,7 @@ function registrationRequest(String $userId = '')
         return $reponse;
     }
     $oldCreds = getCredentials($userId);
-    
+
     $challenge = generateChallenge();
     saveChallenge($userId,$challenge);
 
@@ -25,7 +25,7 @@ function storeCredential(String $userId, String $credentialId,String $signedChal
     $newCredential->credentialId = $credentialId; 
     $newCredential->publicKey = $publicKey;
 
-    
+    x
     $oldCreds = getCredentials($userId);
     $credentials = $oldCreds;
     if(in_array($newCredential,$credentials)) return 'Error - Credential Already Exists';
