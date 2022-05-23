@@ -9,5 +9,5 @@ try{
  echo '<h1>success';
 }catch( PDOException $e){
  $error = $e->getMessage();
- echo $error;
+ echo '<h1>'.$error;
 }
