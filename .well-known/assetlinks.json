@@ -1,0 +1,15 @@
+[
+    {
+      "relation" : [
+        "delegate_permission/common.handle_all_urls",
+        "delegate_permission/common.get_login_creds"
+      ],
+      "target" : {
+        "namespace" : "fido2_client_example",
+        "package_name" : "com.example.fido2_client_example",
+        "sha256_cert_fingerprints" : [
+           "CE:EF:29:8A:F7:CB:A5:C5:2A:1A:5B:8A:5E:A6:96:32:A7:36:E1:3A:9D:AA:20:88:28:1F:AF:33:60:90:AB:E5"
+        ]
+      }
+    }
+  ]
