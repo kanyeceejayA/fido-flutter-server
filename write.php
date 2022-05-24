@@ -30,8 +30,6 @@ try {
     header("Content-Type: text/plain");
     http_response_code(200);
     var_dump($_GET);
-    echo'<br>';
-    echo $content;
     echo 'Ok';
 
     } catch(PDOException $e) {
