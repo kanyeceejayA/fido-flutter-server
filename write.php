@@ -26,12 +26,16 @@ try {
     $stmt->bindParam(':key', $key);
     $stmt->bindParam(':content', $content);
 
-    $stmt->execute();
-
+    // $stmt->execute();
+    header("Content-Type: text/plain");
     http_response_code(200);
+    var_dump($_GET);
+    echo'<br>';
+    echo $content;
     echo 'Ok';
 
     } catch(PDOException $e) {
+        header("Content-Type: text/plain");
         http_response_code(400);
        echo $e->getMessage();
     }catch(Error $e){

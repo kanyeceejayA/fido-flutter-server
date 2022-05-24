@@ -19,11 +19,12 @@ try {
     $stmt->bindParam(':key', $key);
     
     $stmt->execute();
-
+    header("Content-Type: text/plain");
     http_response_code(200);
     echo 'Ok';
 
     } catch(PDOException $e) {
+        header("Content-Type: text/plain");
         http_response_code(400);
        echo $e->getMessage();
     }catch(Error $e){

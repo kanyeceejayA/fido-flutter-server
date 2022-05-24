@@ -25,11 +25,13 @@ try {
     foreach ($stmt as $row) {
         $content = $row['content'];
     }
+    header("Content-Type: text/plain");
     http_response_code(200);
     // echo '<h1 style="font-size:500px">';
     echo $content;
 
     } catch(PDOException $e) {
+        header("Content-Type: text/plain");
         http_response_code(400);
        echo $e->getMessage();
     }catch(Error $e){
